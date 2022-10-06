@@ -3,23 +3,33 @@
     <ion-menu contentId="main-content" type="overlay">
       <ion-content>
         <ion-list id="inbox-list">
-          <ion-list-header>Inbox</ion-list-header>
-          <ion-note>hi@ionicframework.com</ion-note>
-
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-            <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
-              <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
-              <ion-label>{{ p.title }}</ion-label>
-            </ion-item>
-          </ion-menu-toggle>
+          <ion-list-header>Boutique Maribel</ion-list-header>
+          <ion-note>boutiquemaribelags@gmail.com</ion-note>
         </ion-list>
 
-        <ion-list id="labels-list">
-          <ion-list-header>Labels</ion-list-header>
-
-          <ion-item *ngFor="let label of labels" lines="none">
-            <ion-icon slot="start" ios="bookmark-outline" md="bookmark-sharp"></ion-icon>
-            <ion-label>{{ label }}</ion-label>
+        <ion-list>
+          <ion-item button href="dama">
+            <ion-icon name="heart-circle-outline"></ion-icon
+            ><ion-label>Dama</ion-label>
+          </ion-item>
+          <ion-item button href="caballero">
+            <ion-icon name="glasses-outline"></ion-icon
+            ><ion-label>Caballero</ion-label>
+          </ion-item>
+          <ion-item button href="niña">
+            <ion-icon name="flower-outline"></ion-icon
+            ><ion-label>Niña</ion-label>
+          </ion-item>
+          <ion-item button href="niño">
+            <ion-icon name="game-controller-outline"></ion-icon
+            ><ion-label>Niño</ion-label>
+          </ion-item>
+          <ion-item button href="bebe">
+            <ion-icon name="flower-outline"></ion-icon
+            ><ion-label>Bebé</ion-label>
+          </ion-item>
+          <ion-item button href="otros">
+            <ion-icon name="apps-outline"></ion-icon><ion-label>Otros</ion-label>
           </ion-item>
         </ion-list>
       </ion-content>
