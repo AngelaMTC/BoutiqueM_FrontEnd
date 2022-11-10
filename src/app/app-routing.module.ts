@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AdminComponent } from './components/admin/admin.component';
 import { BebeComponent } from './components/bebe/bebe.component';
 import { CaballeroComponent } from './components/caballero/caballero.component';
 import { DamaComponent } from './components/dama/dama.component';
@@ -40,6 +41,10 @@ const routes: Routes = [
   {
     path: 'otros',
     component: OtrosComponent
+  },
+  {
+    path: 'admin',
+    component: AdminComponent
   },
 ];
 
