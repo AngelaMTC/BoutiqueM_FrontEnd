@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Inicio de sesion</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-content>
+        <ion-item>
+          <ion-label>Correo:</ion-label>
+          <ion-input type="email" (change)="setEmail($event.target.value)"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Constraseña:</ion-label>
+          <ion-input type="password" (change)="setPass($event.target.value)"></ion-input>
+        </ion-item>
+        <div class="ion-text-center" style="padding-top: 2%">
+          <ion-button fill="outline" color="success" (click)="sendDataLogin()"
+            >Ingresar</ion-button
+          >
+        </div>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-content>
+      <ion-item button href="register">
+        <ion-label>Crear Cuenta</ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

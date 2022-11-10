@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { BebeComponent } from './components/bebe/bebe.component';
 import { CaballeroComponent } from './components/caballero/caballero.component';
@@ -6,6 +6,9 @@ import { DamaComponent } from './components/dama/dama.component';
 import { NinaComponent } from './components/nina/nina.component';
 import { NinoComponent } from './components/nino/nino.component';
 import { OtrosComponent } from './components/otros/otros.component';
+import { LoginComponent } from './components/user/login/login.component';
+import { RegisterComponent } from './components/user/register/register.component';
+import { EditpasswordComponent } from './components/user/editpassword/editpassword.component';
 
 const routes: Routes = [
   {
@@ -41,6 +44,18 @@ const routes: Routes = [
     path: 'otros',
     component: OtrosComponent
   },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
+  },
+  {
+    path: 'editpassword',
+    component: EditpasswordComponent
+  }
 ];
 
 @NgModule({

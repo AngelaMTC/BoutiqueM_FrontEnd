@@ -1,0 +1,67 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Registro de usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-item>
+      <ion-label>Nombre:</ion-label>
+      <ion-input
+        type="text"
+        (change)="setName($event.target.value)"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Apellido Paterno:</ion-label>
+      <ion-input
+        type="text"
+        (change)="setFirstLastName($event.target.value)"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Apellido Materno:</ion-label>
+      <ion-input
+        type="text"
+        (change)="setSecondLastName($event.target.value)"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Correo:</ion-label>
+      <ion-input
+        type="email"
+        (change)="setEmail($event.target.value)"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Constraseña:</ion-label>
+      <ion-input
+        type="password"
+        (change)="setPass($event.target.value)"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Fecha de nacimiento:</ion-label>
+      <ion-input
+        type="date"
+        (change)="setDate($event.target.value)"
+      ></ion-input>
+    </ion-item>
+    <div class="ion-text-center" style="padding-top: 2%">
+      <ion-button fill="outline" color="success" (click)="sendDataRegister()"
+        >Registrarse</ion-button
+      >
+    </div>
+  </ion-card>
+  <ion-card>
+    <ion-card-content>
+      <ion-item button href="login">
+        <ion-label>Iniciar sesion</ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
