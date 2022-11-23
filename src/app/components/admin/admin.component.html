@@ -7,15 +7,16 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<!-- <ion-content [fullscreen]="true" *ngFor="let clothe of clothesList"> -->
+  <ion-content [fullscreen]="true">
   <ion-card>
     <ion-item>
       <ion-label position="stacked">Nombre</ion-label>
-      <ion-input placeholder=""></ion-input>
+      <ion-input placeholder="" [(ngModel)]="clothe.name"></ion-input>
     </ion-item>
     <ion-list>
       <ion-item>
-        <ion-select interface="popover" placeholder="Categoría">
+        <ion-select interface="popover" placeholder="Categoría" [(ngModel)]="clothe.category">
           <ion-select-option value=""></ion-select-option>
           <ion-select-option value=""></ion-select-option>
           <ion-select-option value=""></ion-select-option>
@@ -24,7 +25,7 @@
     </ion-list>
     <ion-list>
       <ion-item>
-        <ion-select interface="popover" placeholder="Tipo">
+        <ion-select interface="popover" placeholder="Tipo" [(ngModel)]="clothe.type">
           <ion-select-option value=""></ion-select-option>
           <ion-select-option value=""></ion-select-option>
           <ion-select-option value=""></ion-select-option>
@@ -33,7 +34,7 @@
     </ion-list>
     <ion-list>
       <ion-item>
-        <ion-select interface="popover" placeholder="Talla">
+        <ion-select interface="popover" placeholder="Talla" [(ngModel)]="clothe.size">
           <ion-select-option value=""></ion-select-option>
           <ion-select-option value=""></ion-select-option>
           <ion-select-option value=""></ion-select-option>
@@ -42,19 +43,21 @@
     </ion-list>
     <ion-item>
       <ion-label position="stacked">Color</ion-label>
-      <ion-input placeholder=""></ion-input>
+      <ion-input placeholder="" [(ngModel)]="clothe.color"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="stacked">Serial</ion-label>
-      <ion-input placeholder=""></ion-input>
+      <ion-input placeholder="" [(ngModel)]="clothe.serialNumber"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="stacked">Precio</ion-label>
-      <ion-input placeholder=""></ion-input>
+      <ion-input placeholder="" [(ngModel)]="clothe.price"></ion-input>
     </ion-item>
     <div class="centerBtn">
-      <ion-button >Subir imagen</ion-button>
+      <ion-button [(ngModel)]="clothe.photo">Subir imagen</ion-button>
     </div>
+
+    <ion-button color="success" (click)="btnCreateClothes()">CREATE</ion-button>
   </ion-card>
 
 </ion-content>

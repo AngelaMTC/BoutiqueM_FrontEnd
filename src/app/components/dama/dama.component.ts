@@ -15,6 +15,7 @@ export class DamaComponent implements OnInit {
   damaClothes: any;
   idClothe: any;
   filterdamaClothes: any;
+  clothes: any;
 
   constructor(
     private serviceClothes: ClothesService,
@@ -30,11 +31,23 @@ export class DamaComponent implements OnInit {
     window.location.reload();
   }
 
+  searchClothes(event) {
+    const text = event.target.value;
+    this.filterdamaClothes = this.clothesList;
+    if (text && text.trim() !== '') {
+      this.filterdamaClothes = this.filterdamaClothes.filter((clothes: any) =>
+        (clothes.name.toLowerCase().indexOf(text.toLowerCase()) > -1)
+      );
+      console.log('Search:', this.filterdamaClothes);
+    }
+  }
+
+
   public getDamaClothes() {
     this.serviceClothes.getClothes().subscribe((damaClothes: any) => {
-      this.clothesList = damaClothes.data;
-      this.filterdamaClothes = damaClothes.data; 
-      console.log('>>>>:', damaClothes);
+      this.clothesList = damaClothes.clothes;
+      this.filterdamaClothes = damaClothes.clothes; 
+      console.log('>>>>:', damaClothes.clothes);
     });
   }
 
