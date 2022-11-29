@@ -1,4 +1,6 @@
+/* eslint-disable no-underscore-dangle */
 import { Component, OnInit } from '@angular/core';
+import { ClothesService } from '../../services/clothes.service';
 
 @Component({
   selector: 'app-nino',
@@ -7,8 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NinoComponent implements OnInit {
 
-  constructor() { }
+  id ='6352c24690ebeea5509ca0ba';
+  listClothes: any;
 
-  ngOnInit() {}
+  constructor(private clotheService: ClothesService) { }
 
+  ngOnInit() {
+    this.getBoyClothe();
+  }
+
+  getBoyClothe(){
+    this.clotheService.getClotheCategory(this.id).subscribe((resp)=>{
+      this.listClothes = resp;
+      this.listClothes = this.listClothes.clotheFilter;
+      console.log(this.listClothes);
+    });
+  }
 }

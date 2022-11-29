@@ -15,7 +15,18 @@
   </ion-header>
 
   <div id="container">
-    <strong class="capitalize"></strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ion-card *ngFor="let clothe of listOfClothes">
+      <ion-card-header>
+        <img src="" alt="Product image" />
+        <ion-card-title>{{ clothe.name }}</ion-card-title>
+        <ion-card-subtitle>${{ clothe.precio }} MXM</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-label>Color: {{ clothe.color }}</ion-label> <br>
+        <ion-label>Tamaño: {{ clothe.size }}</ion-label> <br>
+        <ion-label>Tipo de prenda: {{ clothe.type[0].name }}</ion-label> <br>
+        <ion-label>Categoria de prenda: {{ clothe.category[0].name }}</ion-label>
+      </ion-card-content>
+    </ion-card>
   </div>
 </ion-content>

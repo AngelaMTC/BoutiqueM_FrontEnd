@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../../services/user.service';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,11 @@ export class LoginComponent implements OnInit {
     pass: '',
   };
   response: any;
-  constructor(private userservice: UserService, private route: Router) {}
+  constructor(
+    private userservice: UserService,
+    private route: Router,
+    private alertCtrl: AlertController
+  ) {}
 
   ngOnInit() {}
 
@@ -23,7 +28,11 @@ export class LoginComponent implements OnInit {
       if (this.response.err === false) {
         this.route.navigate(['/folder/Inbox']);
       } else {
-        console.log(this.response);
+        this.alertCtrl.create({
+          header: 'Correo o contraseña invalidos',
+        }).then(res=>{
+          res.present();
+        });
       }
     });
   }

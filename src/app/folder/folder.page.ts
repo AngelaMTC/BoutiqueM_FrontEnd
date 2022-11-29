@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ClothesService } from '../services/clothes.service';
 
 @Component({
   selector: 'app-folder',
@@ -7,12 +7,18 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./folder.page.scss'],
 })
 export class FolderPage implements OnInit {
-  // public folder: string;
+  listOfClothes: any;
 
-  constructor(private activatedRoute: ActivatedRoute) { }
+  constructor(private clotheService: ClothesService) {}
 
   ngOnInit() {
-    // this.folder = this.activatedRoute.snapshot.paramMap.get('id');
+    this.getClothes();
   }
 
+  getClothes() {
+    this.clotheService.getClothes().subscribe((resp) => {
+      this.listOfClothes = resp.clothes;
+      console.log(this.listOfClothes);
+    });
+  }
 }

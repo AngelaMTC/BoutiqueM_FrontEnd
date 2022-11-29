@@ -14,7 +14,7 @@ import { EditpasswordComponent } from './components/user/editpassword/editpasswo
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'folder/Inbox',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
