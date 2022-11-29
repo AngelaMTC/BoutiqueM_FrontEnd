@@ -3,6 +3,7 @@ import { ClothesService } from 'src/app/services/clothes.service';
 import { ModalController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Clothes } from 'src/app/models/clothes';
+import { CategorysService } from 'src/app/services/category.service';
 
 @Component({
   selector: 'app-dama',
@@ -15,6 +16,7 @@ export class DamaComponent implements OnInit {
   damaClothes: any;
   idClothe: any;
   filterdamaClothes: any;
+  clothes: any;
 
   constructor(
     private serviceClothes: ClothesService,
@@ -30,11 +32,28 @@ export class DamaComponent implements OnInit {
     window.location.reload();
   }
 
+  searchClothes(event) {
+    const text = event.target.value;
+    this.filterdamaClothes = this.clothesList;
+    if (text && text.trim() !== '') {
+      this.filterdamaClothes = this.filterdamaClothes.filter((clothes: any) =>
+        (clothes.name.toLowerCase().indexOf(text.toLowerCase()) > -1)
+      );
+      console.log('Search:', this.filterdamaClothes);
+    }
+  }
+
+  // filter(function(creature) {
+  //   return creature.habitat == "Ocean";
+
   public getDamaClothes() {
     this.serviceClothes.getClothes().subscribe((damaClothes: any) => {
-      this.clothesList = damaClothes.data;
-      this.filterdamaClothes = damaClothes.data; 
-      console.log('>>>>:', damaClothes);
+      let filter = damaClothes.clothes.filter(function(dama){
+        return dama.name == 'Niño';
+      });
+      this.clothesList = damaClothes.clothes;
+      this.filterdamaClothes = damaClothes.clothes;
+      console.log('>>>>:', filter);
     });
   }
 

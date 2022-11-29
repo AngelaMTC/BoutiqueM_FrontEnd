@@ -51,7 +51,7 @@ export class CategorysService {
     }
 
 
-
+// PENDIENTE
     public updateCategorys(id: any, data: any): Observable<any> {
         const headers = { 'content-type': 'application/json,', 'access-Control-Allow-Origin': '*' };
         console.log('PUT :', data);

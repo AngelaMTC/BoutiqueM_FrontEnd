@@ -7,7 +7,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+  <ion-content [fullscreen]="true">
   <ion-card>
     <ion-item>
       <ion-label position="stacked">Nombre</ion-label>
@@ -16,9 +16,7 @@
     <ion-list>
       <ion-item>
         <ion-select interface="popover" placeholder="Categoría">
-          <ion-select-option value=""></ion-select-option>
-          <ion-select-option value=""></ion-select-option>
-          <ion-select-option value=""></ion-select-option>
+          <ion-select-option value="">{{category.name}}</ion-select-option>
         </ion-select>
       </ion-item>
     </ion-list>
@@ -53,8 +51,10 @@
       <ion-input placeholder=""></ion-input>
     </ion-item>
     <div class="centerBtn">
-      <ion-button >Subir imagen</ion-button>
+      <ion-button>Subir imagen</ion-button>
     </div>
+
+    <ion-button color="success" (click)="btnCreateClothes()">CREATE</ion-button>
   </ion-card>
 
 </ion-content>
