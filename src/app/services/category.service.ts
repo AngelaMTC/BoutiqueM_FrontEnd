@@ -14,7 +14,7 @@ export class CategorysService {
         headers: new Headers({ 'content-Type': 'application/json', 'access-Control-Allow-Origin': '*' })
     };
 
-    private url = 'https://localhost:5000/api/';
+    private url = 'https://boutiquemaribel.herokuapp.com/api/category/';
 
     constructor(private http: HttpClient) {
         this.getCategory();
@@ -47,11 +47,11 @@ export class CategorysService {
         const headers = { 'content-type': 'application/json,', 'access-Control-Allow-Origin': '*' };
         const body = JSON.stringify(data);
         console.log('POST Category:', body);
-        return this.http.post(this.url, data, { headers })
+        return this.http.post(`this.url + /`, data, { headers })
     }
 
 
-
+// PENDIENTE
     public updateCategorys(id: any, data: any): Observable<any> {
         const headers = { 'content-type': 'application/json,', 'access-Control-Allow-Origin': '*' };
         console.log('PUT :', data);

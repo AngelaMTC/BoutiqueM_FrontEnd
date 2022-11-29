@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ClothesService } from 'src/app/services/clothes.service';
 import { Clothes } from 'src/app/models/clothes';
+import { Category } from 'src/app/Models/category';
+import { CategorysService } from 'src/app/services/category.service';
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -13,16 +15,28 @@ export class AdminComponent implements OnInit {
   clothe = new Clothes();
   clothesList: [] = [];
   clothes: any;
+  categories: any;
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private serviceClothes: ClothesService,
+    private sC: CategorysService
   ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getCategory();
+  }
 
   refreshClothes(){
     window.location.reload();
+  }
+
+  public getCategory() {
+    this.sC.getCategory().subscribe((categories: any) => {
+      this.clothesList = categories;
+      // this.filtercategories = categories.clothes; 
+      console.log('ajhckasjb', categories);
+    });
   }
 
   public createClothes(

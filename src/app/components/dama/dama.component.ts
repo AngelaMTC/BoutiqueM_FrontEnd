@@ -3,6 +3,7 @@ import { ClothesService } from 'src/app/services/clothes.service';
 import { ModalController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Clothes } from 'src/app/models/clothes';
+import { CategorysService } from 'src/app/services/category.service';
 
 @Component({
   selector: 'app-dama',
@@ -42,12 +43,17 @@ export class DamaComponent implements OnInit {
     }
   }
 
+  // filter(function(creature) {
+  //   return creature.habitat == "Ocean";
 
   public getDamaClothes() {
     this.serviceClothes.getClothes().subscribe((damaClothes: any) => {
+      let filter = damaClothes.clothes.filter(function(dama){
+        return dama.name == 'Niño';
+      });
       this.clothesList = damaClothes.clothes;
-      this.filterdamaClothes = damaClothes.clothes; 
-      console.log('>>>>:', damaClothes.clothes);
+      this.filterdamaClothes = damaClothes.clothes;
+      console.log('>>>>:', filter);
     });
   }
 
