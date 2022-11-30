@@ -18,14 +18,18 @@ export class DamaComponent implements OnInit {
   filterdamaClothes: any;
   clothes: any;
 
+  id ='6377a9a840d22b48c158cb2b';
+  listClothes: any;
   constructor(
     private serviceClothes: ClothesService,
     private modalCtrl: ModalController,
     private activatedRoute: ActivatedRoute,
+    private clotheService: ClothesService
   ) { }
 
   ngOnInit() {
-    this.getDamaClothes();
+    // this.getDamaClothes();
+    this.getDamaClothe();
   }
 
   refreshClothes(){
@@ -46,6 +50,13 @@ export class DamaComponent implements OnInit {
   // filter(function(creature) {
   //   return creature.habitat == "Ocean";
 
+  getDamaClothe(){
+    this.clotheService.getClotheCategory(this.id).subscribe((resp)=>{
+      this.listClothes = resp;
+      this.listClothes = this.listClothes.clotheFilter;
+      console.log(this.listClothes);
+    });
+  }
   public getDamaClothes() {
     this.serviceClothes.getClothes().subscribe((damaClothes: any) => {
       let filter = damaClothes.clothes.filter(function(dama){

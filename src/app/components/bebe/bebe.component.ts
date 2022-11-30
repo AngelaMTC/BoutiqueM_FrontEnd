@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ClothesService } from 'src/app/services/clothes.service';
 
 @Component({
   selector: 'app-bebe',
@@ -7,8 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BebeComponent implements OnInit {
 
-  constructor() { }
+  id ='6377a9cc40d22b48c158cb2d';
+  listClothes: any;
 
-  ngOnInit() {}
+  constructor(private clotheService: ClothesService) { }
 
+  ngOnInit() {
+    this.getBabyClothe();
+  }
+
+  getBabyClothe(){
+    this.clotheService.getClotheCategory(this.id).subscribe((resp)=>{
+      this.listClothes = resp;
+      this.listClothes = this.listClothes.clotheFilter;
+      console.log(this.listClothes);
+    });
+  }
 }

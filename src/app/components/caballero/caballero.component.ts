@@ -16,6 +16,8 @@ export class CaballeroComponent implements OnInit {
   idClothe: any;
   filterCaballeroClothes: any;
   clothes: any;
+  id ='6377a9b540d22b48c158cb2c';
+  listClothes: any;
 
   constructor(
     private serviceClothes: ClothesService,
@@ -24,7 +26,15 @@ export class CaballeroComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getCaballeroClothes();
+    this.getGentlemanClothe();
+  }
+
+  getGentlemanClothe(){
+    this.serviceClothes.getClotheCategory(this.id).subscribe((resp)=>{
+      this.listClothes = resp;
+      this.listClothes = this.listClothes.clotheFilter;
+      console.log(this.listClothes);
+    });
   }
 
   refreshClothes(){

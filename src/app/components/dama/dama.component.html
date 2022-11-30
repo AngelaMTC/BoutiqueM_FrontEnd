@@ -8,19 +8,25 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-searchbar animated="true" [debounce]="1000" (ionChange)="searchClothes($event)" placeholder="Buscar ropa...">
-  </ion-searchbar>
-  
-  <ion-card *ngFor="let clothe of filterdamaClothes">
-    <ion-card-header>
-      <ion-card-title>{{clothe.name}}</ion-card-title>
-      <ion-card-subtitle>{{clothe.size}}</ion-card-subtitle>
-    </ion-card-header>
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large"></ion-title>
+    </ion-toolbar>
+  </ion-header>
 
+<div id="container">
+  <ion-card *ngFor="let clothe of listClothes">
+    <ion-card-header>
+      <img src="" alt="Product image" />
+      <ion-card-title>{{ clothe.name }}</ion-card-title>
+      <ion-card-subtitle>$ MXM</ion-card-subtitle>
+    </ion-card-header>
     <ion-card-content>
-      {{clothe._id}}
+      <ion-label>Color:</ion-label> <br>
+      <ion-label>Tamaño:</ion-label> <br>
+      <ion-label>Tipo de prenda</ion-label> <br>
+      <ion-label>Categoria de prenda:</ion-label>
     </ion-card-content>
   </ion-card>
-
-
+</div>
 </ion-content>
