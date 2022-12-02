@@ -13,10 +13,10 @@
       <ion-label position="stacked">Nombre</ion-label>
       <ion-input placeholder=""></ion-input>
     </ion-item>
-    <ion-list>
+    <ion-list *ngIf="let category of categories">
       <ion-item>
         <ion-select interface="popover" placeholder="Categoría">
-          <ion-select-option value=""></ion-select-option>
+          <ion-select-option value="">{{category.name}}</ion-select-option>
         </ion-select>
       </ion-item>
     </ion-list>

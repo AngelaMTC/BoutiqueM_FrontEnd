@@ -14,7 +14,8 @@ export class CategorysService {
         headers: new Headers({ 'content-Type': 'application/json', 'access-Control-Allow-Origin': '*' })
     };
 
-    private url = 'https://boutiquemaribel.herokuapp.com/api/category';
+    private url = 'localhost:5000/api/category';
+    // private url = 'https://boutiquemaribel.herokuapp.com/api/category';
 
     constructor(private http: HttpClient) {
         this.getCategory();

@@ -14,7 +14,8 @@ export class AdminComponent implements OnInit {
 
   clothe = new Clothes();
   clothes: any;
-  listClothes: any;
+  listClothes: [] = [];
+  filterCLothes: any;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -32,23 +33,32 @@ export class AdminComponent implements OnInit {
     window.location.reload();
   }
   getCategorys(){
-    this.sCategory.getCategory().subscribe((resp: any[])=>{
-      this.listClothes = resp;
-      console.log('---',this.listClothes);
+    this.sCategory.getCategory().subscribe((resp)=>{
+      this.listClothes = resp.cont;
+      // this.filterCLothes = resp.cont;
+      console.log('---',resp.cont.category);
     });
   }
+
+  // getDamaClothe(){
+  //   this.clotheService.getClotheCategory(this.id).subscribe((resp)=>{
+  //     this.listClothes = resp;
+  //     this.listClothes = this.listClothes.clotheFilter;
+  //     console.log(this.listClothes);
+  //   });
+  // }
 
   getTypes(){
     this.sType.getTypeClothe().subscribe((resp)=>{
       this.listClothes = resp;
-      this.listClothes = this.listClothes;
-      console.log('<<<',this.listClothes);
+      this.listClothes = resp.cont;
+      console.log('<<<',resp.cont);
     });
   }
 
   public createSubZone(category: any, name: any, type:any, size: any, color: any, serialNumber: any, photo: any, price:any) {
-    const id = this.activatedRoute.snapshot.paramMap.get('idZone');
-    const zoneId = parseInt(id, 10);
+    // const id = this.activatedRoute.snapshot.paramMap.get('idZone');
+    // const zoneId = parseInt(id, 10);
     // const idZone = parseInt(this.idZone, 10);
     const info = {
       category, name, type, size, color, serialNumber, photo, price
@@ -57,11 +67,11 @@ export class AdminComponent implements OnInit {
     this.sClothe.createClothe(info).subscribe(data => {
       this.clothes = data;
     });
-    this.refreshClothes();
+    // this.refreshClothes();
   }
 
-  btnCreateClothes(id: any) {
-    console.log(id);
+  btnCreateClothes() {
+    // console.log(id);
     this.createSubZone(
       this.clothe.category,
       this.clothe.name,

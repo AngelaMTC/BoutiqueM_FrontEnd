@@ -15,6 +15,7 @@ import { CaballeroComponent } from './components/caballero/caballero.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { FormsModule } from '@angular/forms';
 
+
 @NgModule({
   declarations: [
     AppComponent,

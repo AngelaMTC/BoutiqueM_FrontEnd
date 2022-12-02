@@ -16,9 +16,12 @@ export class ClothesService {
     }),
   };
 
-  private url = 'https://boutiquemaribel.herokuapp.com/api/clothe/';
-  private url2 =
-    'https://boutiquemaribel.herokuapp.com/api/clothe/category?idCategory=';
+  // private url = 'https://boutiquemaribel.herokuapp.com/api/clothe/';
+  // private url2 =
+  //   'https://boutiquemaribel.herokuapp.com/api/clothe/category?idCategory=';
+    private url = 'https://localhost:5000/api/clothe';
+    private url2 =
+      'https://localhost:5000/api/clothe/category?idCategory=';
 
   constructor(private http: HttpClient) {
     this.getClothes();
