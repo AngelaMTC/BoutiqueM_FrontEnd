@@ -1,29 +1,33 @@
-<p>
-  dama works!
-</p>
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>NIÑA</ion-title>
+    <ion-title>DAMA</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  
-  <ion-card>
-  <ion-card-header>
-    <ion-card-title>Card Title</ion-card-title>
-    <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-  </ion-card-header>
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large"></ion-title>
+    </ion-toolbar>
+  </ion-header>
 
-  <ion-card-content>
-    Keep close to Nature's heart... and break clear away, once in awhile,
-    and climb a mountain or spend a week in the woods. Wash your spirit clean.
-  </ion-card-content>
-</ion-card>
-
-
-  
+<div id="container">
+  <ion-card *ngFor="let clothe of girlClothes">
+    <ion-card-header>
+      <img src="" alt="Product image" />
+      <ion-card-title>{{ clothe.name }}</ion-card-title>
+      <ion-card-subtitle> {{clothe.price}}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-label>Color: {{clothe.color}}</ion-label> <br>
+      <ion-label>Tamaño: {{clothe.size}}</ion-label> <br>
+      <ion-label>Tipo de prenda: {{clothe.type}}</ion-label> <br>
+      <ion-label>Categoria de prenda: {{clothe.category}}</ion-label>
+    </ion-card-content>
+    <ion-button expand="block" (click)="openModal()">Open</ion-button>
+  </ion-card>
+</div>
 </ion-content>
