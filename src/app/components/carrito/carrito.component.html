@@ -1,0 +1,65 @@
+
+<ion-content>
+
+  <!-- <div class="modal"> -->
+    <ion-card class="modal">
+    <ion-slides class="containerSlides" pager="true">
+
+      <ion-slide>
+
+        <div class="">
+          <img class="containerImg" src="../../../assets/img/hoodie.png" >
+        </div>
+      </ion-slide>
+
+      <ion-slide>
+
+        <div class="">
+          <img class="containerImg" src="../../../assets/img/hoodie2.png" >
+        </div>
+      </ion-slide>
+
+      <ion-slide>
+
+        <div class="">
+          <img class="containerImg" src="../../../assets/img/hoodie3.png" >
+        </div>
+      </ion-slide>
+    
+    </ion-slides>
+  <!-- </ion-card> -->
+    <!-- <ion-card> -->
+    <div class="itemContainer">
+      <ion-subtitle class="subTitleProduct">Color: <b class="Bold">Stone Mauve</b></ion-subtitle>
+      <!-- <br> -->
+      <ion-subtitle class="subTitleProduct">Talla: <b class="Bold">M</b> </ion-subtitle>
+    </div>
+    <!-- <br> -->
+      <div class="containerCantidad">
+        <span class="SpanCantidad">
+          <ion-label position="stacked">Cantidad</ion-label>
+        </span>
+        <ion-input class="Bold" style="font-weight: bold;" type="number" minWidth="0" [(ngModel)]="name" placeholder="0"></ion-input>
+        <!-- <ion-input class="Bold" placeholder="0" ></ion-input> -->
+
+      </div>
+    <!-- </ion-card> -->
+    <ion-toolbar class="butonsContainer">
+      <!-- <div class=""> -->
+       <div class="btnConfirmar">
+          <ion-buttons class="btnConfirmarCenter" slot="end">
+            <ion-button class="btnConfirmarCenter" (click)="confirm()">Agregar al Carrito</ion-button>
+          </ion-buttons>
+        </div>
+        <div class="btnCancelar">
+          <ion-buttons class="btnCancelarCenter" slot="start">
+            <ion-button class="btnCancelarCenter" (click)="cancel()">Cancelar</ion-button>
+          </ion-buttons>
+         </div>
+    <!-- </div> -->
+    </ion-toolbar>
+    </ion-card>
+  <!-- </div> -->
+
+</ion-content>
+
