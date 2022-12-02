@@ -16,9 +16,9 @@ export class ClothesService {
     }),
   };
 
-  private url = 'https://boutiquemaribel.herokuapp.com/api/clothe/';
+  private url = 'https://boutiquebackend-production.up.railway.app/api/clothe/';
   private url2 =
-    'https://boutiquemaribel.herokuapp.com/api/clothe/category?idCategory=';
+    'https://boutiquebackend-production.up.railway.app/api/clothe?idCategory=';
 
   constructor(private http: HttpClient) {
     this.getClothes();

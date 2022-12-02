@@ -21,7 +21,8 @@ export class NinoComponent implements OnInit {
   getBoyClothe(){
     this.clotheService.getClotheCategory(this.id).subscribe((resp)=>{
       this.listClothes = resp;
-      this.listClothes = this.listClothes.clotheFilter;
+      console.log(this.listClothes);
+      this.listClothes = this.listClothes.clothes;
       console.log(this.listClothes);
     });
   }
