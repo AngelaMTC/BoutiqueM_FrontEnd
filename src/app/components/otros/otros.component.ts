@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ClothesService } from 'src/app/services/clothes.service';
-
+import { CarritoComponent } from '../carrito/carrito.component';
+import { ModalController } from '@ionic/angular';
 @Component({
   selector: 'app-otros',
   templateUrl: './otros.component.html',
@@ -296,7 +297,8 @@ export class OtrosComponent implements OnInit {
 
   ]
   
-  constructor(private clotheService: ClothesService) { }
+  constructor(private clotheService: ClothesService,
+    private ModalCtrl: ModalController) { }
 
   ngOnInit() {
     this.getOthersClothe();
@@ -309,4 +311,12 @@ export class OtrosComponent implements OnInit {
       console.log(this.listClothes);
     });
   }
+
+  async openModal() {
+    const modal = await this.ModalCtrl.create({
+component: CarritoComponent,
+    });
+    modal.present();
+  }
+
 }

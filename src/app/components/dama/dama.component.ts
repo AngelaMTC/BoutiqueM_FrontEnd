@@ -4,6 +4,8 @@ import { ModalController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Clothes } from 'src/app/models/clothes';
 import { CategorysService } from 'src/app/services/category.service';
+import { CarritoComponent } from '../carrito/carrito.component';
+
 
 @Component({
   selector: 'app-dama',
@@ -70,114 +72,114 @@ export class DamaComponent implements OnInit {
       price: '$350MX',
     },
     {
-    category: 'Blusa',
+      category: 'Blusa',
 
-    name: 'Girl pink',
+      name: 'Girl pink',
 
-    type: 'Blusa',
+      type: 'Blusa',
 
-    size: 'S',
+      size: 'S',
 
-    color: 'Azul claro',
+      color: 'Azul claro',
 
-    serialNumber: '440926470122',
+      serialNumber: '440926470122',
 
-    photo: '',
+      photo: '',
 
-    price: '$130MX',
-  
+      price: '$130MX',
+
     },
-{
+    {
 
-  category: 'Scrunchies',
+      category: 'Scrunchies',
 
-    name: 'Girl fast',
+      name: 'Girl fast',
 
       type: 'Scrunchies',
 
-        size: 'S',
+      size: 'S',
 
-          color: 'Café',
+      color: 'Café',
 
-            serialNumber: '991522738493',
+      serialNumber: '991522738493',
 
-              photo: '',
+      photo: '',
 
-                price: '$20MX',
-  
+      price: '$20MX',
+
     },
-{
+    {
 
-  category: 'Huaraches',
+      category: 'Huaraches',
 
-    name: 'Girl beach',
+      name: 'Girl beach',
 
       type: 'Huaraches',
 
-        size: '13',
+      size: '13',
 
-          color: 'Negro',
+      color: 'Negro',
 
-            serialNumber: '002647193622',
+      serialNumber: '002647193622',
 
-              photo: '',
+      photo: '',
 
-                price: '$200MX',
-  
+      price: '$200MX',
+
     },
-{
+    {
 
-  category: 'Toalla',
+      category: 'Toalla',
 
-    name: 'Girl water',
+      name: 'Girl water',
 
       type: 'Toalla',
 
-        size: 'G',
+      size: 'G',
 
-          color: 'Rojo',
+      color: 'Rojo',
 
-            serialNumber: '448362772935',
+      serialNumber: '448362772935',
 
-              photo: '',
+      photo: '',
 
-                price: '$250MX',
-  
+      price: '$250MX',
+
     },
-{
+    {
 
-  category: 'Bra',
+      category: 'Bra',
 
-    name: 'Girl night',
+      name: 'Girl night',
 
       type: 'Bra',
 
-        size: '28',
+      size: '28',
 
-          color: 'Beige',
+      color: 'Beige',
 
-            serialNumber: '662933720174',
+      serialNumber: '662933720174',
 
-              photo: '',
+      photo: '',
 
-                price: '$250MX',
-  
+      price: '$250MX',
+
     },
   ]
 
-id = '6377a9a840d22b48c158cb2b';
-listClothes: any;
-constructor(
-  private serviceClothes: ClothesService,
-  private modalCtrl: ModalController,
-  private activatedRoute: ActivatedRoute,
-  private clotheService: ClothesService
-) { }
+  id = '6377a9a840d22b48c158cb2b';
+  listClothes: any;
+  constructor(
+    private serviceClothes: ClothesService,
+    private modalCtrl: ModalController,
+    private activatedRoute: ActivatedRoute,
+    private clotheService: ClothesService
+  ) { }
 
-ngOnInit() {
-  // this.getDamaClothes();
-  // this.getDamaClothe();
-}
+  ngOnInit() {
+    // this.getDamaClothes();
+    // this.getDamaClothe();
+  }
 
   // refreshClothes() {
   //   window.location.reload();

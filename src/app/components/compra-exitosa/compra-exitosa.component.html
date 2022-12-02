@@ -1,0 +1,31 @@
+<ion-content>
+  <ion-card class="datosCompra">
+    <span
+      ><b>
+        <h1 class="compra">¿Realizar Compra?</h1>
+      </b></span
+    >
+    <span class="reciboCompra">
+      <p>Compra realizada con el recibo <b>23745</b></p>
+    </span>
+
+    <ion-toolbar class="butonsContainer">
+      <div class="buttonsBetween">
+        <div class="btnConfirmar">
+          <ion-buttons class="btnConfirmarCenter" slot="end">
+            <ion-button class="btnConfirmarCenter" (click)="confirm()"
+              >Confirmar</ion-button
+            >
+          </ion-buttons>
+        </div>
+        <div class="btnCancelar">
+          <ion-buttons class="btnCancelarCenter" slot="end">
+            <ion-button class="btnCancelarCenter" (click)="cancel()"
+              >Cancelar</ion-button
+            >
+          </ion-buttons>
+        </div>
+      </div>
+    </ion-toolbar>
+  </ion-card>
+</ion-content>
