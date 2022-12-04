@@ -4,6 +4,7 @@ import { ModalController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Clothes } from 'src/app/models/clothes';
 import { CategorysService } from 'src/app/services/category.service';
+import { CarritoComponent } from '../carrito/carrito.component';
 
 @Component({
   selector: 'app-dama',
@@ -96,5 +97,12 @@ export class DamaComponent implements OnInit {
     });
     this.refreshClothes();
   }
+  async openModal() {
+    const modal = await this.modalCtrl.create({
+      component: CarritoComponent,
+    });
+    modal.present();
+  }
+
 }
 

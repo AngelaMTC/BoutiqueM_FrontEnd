@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ClothesService } from 'src/app/services/clothes.service';
+import { CarritoComponent } from '../carrito/carrito.component';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-otros',
@@ -11,7 +13,9 @@ export class OtrosComponent implements OnInit {
   id ='6377a9d740d22b48c158cb2e';
   listClothes: any;
 
-  constructor(private clotheService: ClothesService) { }
+  constructor(private clotheService: ClothesService,
+    private ModalCtrl : ModalController
+    ) { }
 
   ngOnInit() {
     this.getOthersClothe();
@@ -23,5 +27,11 @@ export class OtrosComponent implements OnInit {
       this.listClothes = this.listClothes.clotheFilter;
       console.log(this.listClothes);
     });
+  }
+  async openModal() {
+    const modal = await this.ModalCtrl.create({
+component: CarritoComponent,
+    });
+    modal.present();
   }
 }

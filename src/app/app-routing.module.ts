@@ -3,6 +3,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './components/admin/admin.component';
 import { BebeComponent } from './components/bebe/bebe.component';
 import { CaballeroComponent } from './components/caballero/caballero.component';
+import { CarritolistaComponent } from "./components/carritolista/carritolista.component";
 import { DamaComponent } from './components/dama/dama.component';
 import { NinaComponent } from './components/nina/nina.component';
 import { NinoComponent } from './components/nino/nino.component';
@@ -20,6 +21,10 @@ const routes: Routes = [
   {
     path: 'folder/:id',
     loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
+  },
+  {
+    path:'carritolista',
+    component:CarritolistaComponent 
   },
   {
     path: 'dama',

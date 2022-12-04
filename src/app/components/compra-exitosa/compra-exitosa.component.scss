@@ -1,0 +1,113 @@
+// .subTitleProduct{
+//     margin-left: 1.5em;
+// }
+
+// .itemContainer{
+//     display: flex;
+//     flex-direction: column;
+//     align-items: flex-start;
+//     padding-left: 25px;
+//     height: 50px;
+//     font-size: 15px;
+//     color: rgba(0,0,0, 0.55);
+// }
+
+.datosCompra{
+    height: 80%;
+    border: 1px solid rgba(0, 0, 0, 0.274);
+    border-radius: 8px;
+    margin: 50px;
+    margin-top: 50px;
+    padding-top: 13%;
+    padding-bottom: 32%;
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    align-items: center;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}
+
+.compra{
+    color: #488aff;
+    padding-top: 10%;
+}
+
+.reciboCompra{
+    font-size: medium;
+}
+
+.butonsContainer{
+    padding-bottom: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btnCancelar{
+    height: 50px;
+    width: 50%;
+    background-color: #d9e7fa;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    // padding-left: 40%;
+}
+
+.btnCancelarCenter{
+    width: 100%;
+    color: #488aff;
+    font-weight: bold;
+}
+
+.btnConfirmar{
+    margin-right: 15px;
+    height: 50px;
+    width: 50%;
+    background-color: #488aff;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+}
+
+.btnConfirmarCenter{
+    width: 100%;
+    color: white;
+    font-weight: bold;
+    // height: 10px;
+}
+
+// .imgContainer{
+//     max-height: 90%;
+// }
+
+// .containerImg{
+//     width: 40%;
+//     min-width: auto;
+// }
+
+// .containerCantidad{
+//     display: flex;
+//     align-items: flex-start;
+// }
+
+.buttonsBetween{
+    display: flex;
+    justify-content: space-between;
+}
+
+.SpanCantidad{
+    padding-top: 9px;
+    padding-left: 50px;
+    padding-bottom: 15px;
+    font-size: 15px;
+    color: rgba(0,0,0, 0.55);
+}
+
+.Bold{
+    color: black;
+}
