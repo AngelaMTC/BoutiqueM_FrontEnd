@@ -15,7 +15,7 @@ export class NinoComponent implements OnInit {
 
   constructor(
     private clotheService: ClothesService,
-    private modalCtrl : ModalController 
+    private modalCtrl: ModalController,
     ) { }
 
   ngOnInit() {
@@ -25,9 +25,7 @@ export class NinoComponent implements OnInit {
   getBoyClothe(){
     this.clotheService.getClotheCategory(this.id).subscribe((resp)=>{
       this.listClothes = resp;
-      console.log(this.listClothes);
-      this.listClothes = this.listClothes.clothes;
-      console.log(this.listClothes);
+      this.listClothes = this.listClothes.clotheFilter;
     });
   }
 

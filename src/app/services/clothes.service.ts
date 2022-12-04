@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { map } from 'rxjs/operators';
 import { Clothes } from '../models/clothes';
+import { ClotheSave } from '../interface/clothe';
 
 @Injectable({
   providedIn: 'root',
@@ -18,7 +19,7 @@ export class ClothesService {
 
   private url = 'https://boutiquebackend-production.up.railway.app/api/clothe/';
   private url2 =
-    'https://boutiquebackend-production.up.railway.app/api/clothe?idCategory=';
+    'https://boutiquebackend-production.up.railway.app/api/clothe/category?idCategory=';
 
   constructor(private http: HttpClient) {
     this.getClothes();
@@ -43,19 +44,14 @@ export class ClothesService {
   }
 
   getClotheCategory(id: string) {
+    console.log(this.url2 + id);
     return this.http
       .get(`${this.url2}${id}`)
       .pipe(map(this.extractData), catchError(this.handleError));
   }
 
-  createClothe(data: any): Observable<any> {
-    const headers = {
-      'content-type': 'application/json,',
-      'access-Control-Allow-Origin': '*',
-    };
-    const body = JSON.stringify(data);
-    console.log('POST Clothe:', body);
-    return this.http.post(this.url, data, { headers });
+  createClothe(data: ClotheSave): Observable<any> {
+    return this.http.post(this.url, data);
   }
 
   public updateClothes(id: any, data: any): Observable<any> {

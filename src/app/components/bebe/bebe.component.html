@@ -15,17 +15,16 @@
   </ion-header>
 
 <div id="container">
-  <ion-card *ngFor="let clothe of babyClothes">
+  <ion-card *ngFor="let clothe of listClothes;let i = index;">
     <ion-card-header>
       <img src="" alt="Product image" />
       <ion-card-title>{{ clothe.name }}</ion-card-title>
-      <ion-card-subtitle>{{clothe.price}}</ion-card-subtitle>
+      <ion-card-subtitle>${{ clothe.precio }} MXM</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
-      <ion-label>Color: {{clothe.color}}</ion-label> <br>
-      <ion-label>Tamaño: {{clothe.size}}</ion-label> <br>
-      <ion-label>Tipo de prenda: {{clothe.type}}</ion-label> <br>
-      <ion-label>Categoria de prenda: {{clothe.category}}</ion-label>
+      <ion-label>Color: {{ clothe.color }}</ion-label> <br>
+      <ion-label>Tamaño: {{ clothe.size }}</ion-label> <br>
+      <ion-label>Tipo de prenda: {{ clothe.type[0].name }}</ion-label> <br>
     </ion-card-content>
     <ion-button expand="block" (click)="openModal()">Open</ion-button>
   </ion-card>
