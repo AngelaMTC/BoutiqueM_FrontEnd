@@ -13,8 +13,9 @@ export class NinoComponent implements OnInit {
   id ='6352c24690ebeea5509ca0ba';
   listClothes: any;
 
-  constructor(private clotheService: ClothesService,
-    private modalCtrl : ModalController
+  constructor(
+    private clotheService: ClothesService,
+    private modalCtrl: ModalController,
     ) { }
 
   ngOnInit() {
@@ -25,7 +26,6 @@ export class NinoComponent implements OnInit {
     this.clotheService.getClotheCategory(this.id).subscribe((resp)=>{
       this.listClothes = resp;
       this.listClothes = this.listClothes.clotheFilter;
-      console.log(this.listClothes);
     });
   }
   async openModal() {

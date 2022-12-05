@@ -5,7 +5,7 @@ import { UserLogin } from '../interface/user';
   providedIn: 'root',
 })
 export class UserService {
-  url = 'https://boutiquemaribel.herokuapp.com/api/user/';
+  url = 'https://boutiquebackend-production.up.railway.app/api/user/';
   constructor(private http: HttpClient) {}
 
   postLogin(login: UserLogin) {

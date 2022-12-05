@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { ClothesService } from 'src/app/services/clothes.service';
-import { Clothes } from 'src/app/models/clothes';
-import { Category } from 'src/app/Models/category';
+import { AlertController } from '@ionic/angular';
 import { CategorysService } from 'src/app/services/category.service';
 import { TypeClothesService } from 'src/app/services/typeClothe.service';
 @Component({
@@ -11,70 +9,87 @@ import { TypeClothesService } from 'src/app/services/typeClothe.service';
   styleUrls: ['./admin.component.scss'],
 })
 export class AdminComponent implements OnInit {
-
-  clothe = new Clothes();
-  clothes: any;
-  listClothes: any;
+  types: any;
+  categories: any;
+  clothe = {
+    category: '',
+    name: '',
+    type: '',
+    size: '',
+    color: '',
+    serialNumber: '',
+    photo: '',
+    precio: '',
+  };
 
   constructor(
-    private activatedRoute: ActivatedRoute,
     private sClothe: ClothesService,
     private sCategory: CategorysService,
-    private sType: TypeClothesService
-  ) { }
+    private sType: TypeClothesService,
+    private alertCtrl: AlertController
+  ) {}
 
   ngOnInit() {
-    this.getCategorys();
     this.getTypes();
+    this.getCategories();
   }
 
-  refreshClothes() {
-    window.location.reload();
-  }
-  getCategorys(){
-    this.sCategory.getCategory().subscribe((resp: any[])=>{
-      this.listClothes = resp;
-      console.log('---',this.listClothes);
+  getTypes() {
+    this.sType.getTypeClothe().subscribe((resp) => {
+      this.types = resp;
+      this.types = this.types.cont.typeClothe;
     });
   }
 
-  getTypes(){
-    this.sType.getTypeClothe().subscribe((resp)=>{
-      this.listClothes = resp;
-      this.listClothes = this.listClothes;
-      console.log('<<<',this.listClothes);
+  getCategories() {
+    this.sCategory.getCategory().subscribe((resp) => {
+      this.categories = resp;
+      this.categories = this.categories.cont.category;
     });
   }
 
-  public createSubZone(category: any, name: any, type:any, size: any, color: any, serialNumber: any, photo: any, price:any) {
-    const id = this.activatedRoute.snapshot.paramMap.get('idZone');
-    const zoneId = parseInt(id, 10);
-    // const idZone = parseInt(this.idZone, 10);
-    const info = {
-      category, name, type, size, color, serialNumber, photo, price
-    };
+  setcategory(category: string) {
+    this.clothe.category = category;
+  }
 
-    this.sClothe.createClothe(info).subscribe(data => {
-      this.clothes = data;
+  setname(name: string) {
+    this.clothe.name = name;
+  }
+
+  settype(type: string) {
+    this.clothe.type = type;
+  }
+
+  setsize(size: string) {
+    this.clothe.size = size;
+  }
+
+  setcolor(color: string) {
+    this.clothe.color = color;
+  }
+
+  setserialNumber(serialNumber: string) {
+    this.clothe.serialNumber = serialNumber;
+  }
+
+  setphoto(photo: string) {
+    this.clothe.photo = photo;
+  }
+
+  setprecio(precio: string) {
+    this.clothe.precio = precio;
+  }
+
+  saveClothe(){
+    this.sClothe.createClothe(this.clothe).subscribe(resp=>{
+      console.log(resp);
+      if(resp.err===false){
+        this.alertCtrl.create({
+          header: 'Producto registrado con exito',
+        }).then(res=>{
+          res.present();
+        });
+      }
     });
-    this.refreshClothes();
   }
-
-  btnCreateClothes(id: any) {
-    console.log(id);
-    this.createSubZone(
-      this.clothe.category,
-      this.clothe.name,
-      this.clothe.type,
-      this.clothe.size,
-      this.clothe.color,
-      this.clothe.serialNumber,
-      this.clothe.photo,
-      this.clothe.price,
-    );
-    // this.refreshZones();
-    // this.modal.dismiss();
-  }
-  
 }
-

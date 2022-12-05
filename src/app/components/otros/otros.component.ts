@@ -9,28 +9,28 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./otros.component.scss'],
 })
 export class OtrosComponent implements OnInit {
-  
-  id ='6377a9d740d22b48c158cb2e';
+  id = '6377a9d740d22b48c158cb2e';
   listClothes: any;
 
-  constructor(private clotheService: ClothesService,
-    private ModalCtrl : ModalController
-    ) { }
+  constructor(
+    private clotheService: ClothesService,
+    private modalCtrl: ModalController
+  ) {}
 
   ngOnInit() {
     this.getOthersClothe();
   }
 
-  getOthersClothe(){
-    this.clotheService.getClotheCategory(this.id).subscribe((resp)=>{
+  getOthersClothe() {
+    this.clotheService.getClotheCategory(this.id).subscribe((resp) => {
       this.listClothes = resp;
       this.listClothes = this.listClothes.clotheFilter;
-      console.log(this.listClothes);
     });
   }
+
   async openModal() {
-    const modal = await this.ModalCtrl.create({
-component: CarritoComponent,
+    const modal = await this.modalCtrl.create({
+      component: CarritoComponent,
     });
     modal.present();
   }

@@ -18,7 +18,6 @@ export class FolderPage implements OnInit {
   getClothes() {
     this.clotheService.getClothes().subscribe((resp) => {
       this.listOfClothes = resp.clothes;
-      console.log(this.listOfClothes);
     });
   }
 }

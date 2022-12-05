@@ -11,45 +11,45 @@
   <ion-card>
     <ion-item>
       <ion-label position="stacked">Nombre</ion-label>
-      <ion-input placeholder=""></ion-input>
+      <ion-input placeholder="" (ionChange)="setname($event.target.value)"></ion-input>
     </ion-item>
-    <ion-list>
+    <ion-list >
       <ion-item>
-        <ion-select interface="popover" placeholder="Categoría">
-          <ion-select-option value=""></ion-select-option>
+        <ion-select interface="popover" placeholder="Categoría" (ionChange)="setcategory($event.target.value)">
+          <ion-select-option *ngFor="let category of categories" value="{{category._id}}">{{category.name}}</ion-select-option>
         </ion-select>
       </ion-item>
     </ion-list>
     <ion-list>
       <ion-item>
-        <ion-select interface="popover" placeholder="Tipo">
-          <ion-select-option value=""></ion-select-option>
+        <ion-select interface="popover" placeholder="Tipo" (ionChange)="settype($event.target.value)">
+          <ion-select-option *ngFor="let type of types" value="{{type._id}}">{{type.name}}</ion-select-option>
         </ion-select>
       </ion-item>
     </ion-list>
     <ion-list>
       <ion-item>
         <ion-label position="stacked">Talla</ion-label>
-      <ion-input type="number" maxlength="2" placeholder="" ></ion-input>
+      <ion-input type="number" maxlength="2" placeholder="" (ionChange)="setsize($event.target.value)"></ion-input>
       </ion-item>
     </ion-list>
     <ion-item>
       <ion-label position="stacked">Color</ion-label>
-      <ion-input placeholder=""></ion-input>
+      <ion-input placeholder="" (ionChange)="setcolor($event.target.value)"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="stacked">Serial</ion-label>
-      <ion-input placeholder=""></ion-input>
+      <ion-input placeholder="" (ionChange)="setserialNumber($event.target.value)"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="stacked">Precio</ion-label>
-      <ion-input placeholder=""></ion-input>
+      <ion-input placeholder="" (ionChange)="setprecio($event.target.value)"></ion-input>
     </ion-item>
     <div class="centerBtn">
       <ion-button>Subir imagen</ion-button>
     </div>
 
-    <ion-button color="success" (click)="btnCreateClothes()">CREATE</ion-button>
+    <ion-button color="success" (click)="saveClothe()">CREATE</ion-button>
   </ion-card>
 
 </ion-content>

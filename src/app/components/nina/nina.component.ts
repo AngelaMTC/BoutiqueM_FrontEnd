@@ -8,13 +8,12 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./nina.component.scss'],
 })
 export class NinaComponent implements OnInit {
-
- 
   id ='63531cf17ec375a6b31ddc81';
   listClothes: any;
 
-  constructor(private clotheService: ClothesService,
-    private modalCtrl : ModalController
+  constructor(
+    private clotheService: ClothesService,
+    private modalCtrl: ModalController,
     ) { }
 
   ngOnInit() {
@@ -25,7 +24,6 @@ export class NinaComponent implements OnInit {
     this.clotheService.getClotheCategory(this.id).subscribe((resp)=>{
       this.listClothes = resp;
       this.listClothes = this.listClothes.clotheFilter;
-      console.log(this.listClothes);
     });
   }
   async openModal() {
